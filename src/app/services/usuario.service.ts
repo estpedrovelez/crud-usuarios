@@ -5,7 +5,7 @@ import { Usuario } from '../models/usuario.model';
 
 @Injectable({ providedIn: 'root' })
 export class UsuarioService {
-    private readonly apiUrl = 'http://localhost:3000/usuarios';
+    private readonly apiUrl = 'https://sistemarestusuarios-production-ca57.up.railway.app/';
 
     constructor(private http: HttpClient) {}
 
