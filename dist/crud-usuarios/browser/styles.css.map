@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/styles.css"],
+  "sourcesContent": [":root {\r\n    --paper: #FDFCF7;\r\n    --ink: #26221D;\r\n    --ink-soft: #6B6455;\r\n    --rule-blue: #BFD3E8;\r\n    --margin-red: #C23B33;\r\n    --paper-card: #FFFFFF;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\nhtml,\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    color: var(--ink);\r\n    font-family: 'Work Sans', -apple-system, sans-serif;\r\n    background-color: var(--paper);\r\n    background-image: repeating-linear-gradient(\r\n        var(--paper) 0px,\r\n        var(--paper) 31px,\r\n        var(--rule-blue) 31px,\r\n        var(--rule-blue) 32px\r\n    );\r\n}\r\n\r\n@media (prefers-reduced-motion: reduce) {\r\n  *, *::before, *::after {\r\n    animation-duration: 0.01ms !important;\r\n    transition-duration: 0.01ms !important;\r\n}\r\n}"],
+  "mappings": ";AAAA;AACI,WAAS;AACT,SAAO;AACP,cAAY;AACZ,eAAa;AACb,gBAAc;AACd,gBAAc;AAClB;AAEA;AACI,cAAY;AAChB;AAEA;AACA;AACI,UAAQ;AACR,WAAS;AACT,SAAO,IAAI;AACX;AAAA,IAAa,WAAW;AAAA,IAAE,aAAa;AAAA,IAAE;AACzC,oBAAkB,IAAI;AACtB;AAAA,IAAkB;AAAA,MACd,IAAI,SAAS,GAAG;AAAA,MAChB,IAAI,SAAS,IAAI;AAAA,MACjB,IAAI,aAAa,IAAI;AAAA,MACrB,IAAI,aAAa;AAEzB;AAEA,OAAO,CAAC,sBAAsB,EAAE;AAC9B;AAAA,EAAG,CAAC;AAAA,EAAU,CAAC;AACb,wBAAoB;AACpB,yBAAqB;AACzB;AACA;",
+  "names": []
+}
