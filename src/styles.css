@@ -1,0 +1,34 @@
+:root {
+    --paper: #FDFCF7;
+    --ink: #26221D;
+    --ink-soft: #6B6455;
+    --rule-blue: #BFD3E8;
+    --margin-red: #C23B33;
+    --paper-card: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--ink);
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+        var(--paper) 0px,
+        var(--paper) 31px,
+        var(--rule-blue) 31px,
+        var(--rule-blue) 32px
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+}
+}

@@ -1,0 +1,91 @@
+<div class="registro">
+    <header class="registro__header">
+        <div>
+            <h1 class="registro__title">Usuarios</h1>
+            <p class="registro__nota">Cada renglón es una persona dada de alta en el registro, con edición y baja al instante.</p>
+        </div>
+        <div class="registro__conteo">{{ usuarios().length }} {{ usuarios().length === 1 ? 'ficha' : 'fichas' }}</div>
+    </header>
+    @if (error()) {
+        <div class="aviso">{{ error() }}</div>
+    }
+    <div class="libro">
+        <section class="ficha">
+            <h2 class="ficha__titulo">{{ editando ? 'Editar ficha' : 'Nueva ficha' }}</h2>
+            <form class="ficha__form" (ngSubmit)="guardar()" #f="ngForm">
+                <label class="campo">
+                    <span class="campo__label">Nombre</span>
+                    <input
+                    class="campo__input"
+                    type="text"
+                    name="nombre"
+                    [(ngModel)]="usuarioActual.nombre"
+                    required
+                    maxlength="30"
+                    placeholder="Pedro Vélez"
+                    />
+                </label>
+                
+                <label class="campo">
+                    <span class="campo__label">Edad</span>
+                    <input
+                    class="campo__input"
+                    type="text"
+                    name="edad"
+                    [(ngModel)]="usuarioActual.edad"
+                    maxlength="6"
+                    placeholder="28"
+                    />
+                </label>
+                
+                <label class="campo">
+                    <span class="campo__label">Tipo</span>
+                    <input
+                    class="campo__input"
+                    type="text"
+                    name="tipo"
+                    [(ngModel)]="usuarioActual.tipo"
+                    maxlength="30"
+                    placeholder="Administrador"
+                    />
+                </label>
+                
+                <div class="ficha__acciones">
+                    <button type="submit" class="boton-primario" [disabled]="!f.form.valid">
+                        {{ editando ? 'Guardar cambios' : 'Registrar usuario' }}
+                    </button>
+                    @if (editando) {
+                        <button type="button" class="enlace" (click)="cancelarEdicion()">Cancelar</button>
+                    }
+                </div>
+            </form>
+        </section>
+        
+        <section class="hoja">
+            <div class="hoja__cabecera">
+                <h2>Fichas registradas</h2>
+                <button class="enlace" (click)="cargarUsuarios()">Recargar</button>
+            </div>
+            @if (cargando()) {
+                <p class="estado">Consultando el registro…</p>
+            } @else if (usuarios().length === 0) {
+                <p class="estado">El registro está vacío. Añade la primera ficha.</p>
+            } @else {
+                <ol class="renglones">
+                    @for (u of usuarios(); track u.id; let i = $index) {
+                        <li class="renglon">
+                            <span class="renglon__numero">{{ (i + 1).toString().padStart(3, '0') }}</span>
+                            <span class="renglon__nombre">{{ u.nombre }}</span>
+                            <span class="renglon__dato">{{ u.edad }}</span>
+                            <span class="renglon__dato">{{ u.tipo }}</span>
+                            <span class="renglon__acciones">
+                                <button class="icono" (click)="editar(u)" aria-label="Editar ficha">✎</button>
+                                <button class="icono icono--baja" (click)="eliminar(u)" aria-label="Eliminar ficha">✕</button>
+                            </span>
+                        </li>
+                    }
+                </ol>
+            }
+        </section>
+    </div>
+</div>
